@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Permission;
+namespace GedeAdi\Permission;
 
 use Illuminate\Contracts\Auth\Access\Authorizable;
 use Illuminate\Database\Eloquent\Model;

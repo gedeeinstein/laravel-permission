@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\Permission\Commands;
+namespace GedeAdi\Permission\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
-use Spatie\Permission\Contracts\Permission as PermissionContract;
-use Spatie\Permission\Contracts\Role as RoleContract;
+use GedeAdi\Permission\Contracts\Permission as PermissionContract;
+use GedeAdi\Permission\Contracts\Role as RoleContract;
 use Symfony\Component\Console\Helper\TableCell;
 
 class Show extends Command
@@ -38,14 +38,14 @@ class Show extends Command
             $roles = $roleClass::whereGuardName($guard)
                 ->with('permissions')
                 ->when($teamsEnabled, fn ($q) => $q->orderBy($team_key))
-                ->orderBy('name')->get()->mapWithKeys(fn ($role) => [
-                    $role->name.'_'.($teamsEnabled ? ($role->$team_key ?: '') : '') => [
+                ->orderBy('nama')->get()->mapWithKeys(fn ($role) => [
+                    $role->nama.'_'.($teamsEnabled ? ($role->$team_key ?: '') : '') => [
                         'permissions' => $role->permissions->pluck($permissionClass->getKeyName()),
                         $team_key => $teamsEnabled ? $role->$team_key : null,
                     ],
                 ]);
 
-            $permissions = $permissionClass::whereGuardName($guard)->orderBy('name')->pluck('name', $permissionClass->getKeyName());
+            $permissions = $permissionClass::whereGuardName($guard)->orderBy('nama')->pluck('nama', $permissionClass->getKeyName());
 
             $body = $permissions->map(fn ($permission, $id) => $roles->map(
                 fn (array $role_data) => $role_data['permissions']->contains($id) ? ' ✔' : ' ·'
@@ -62,10 +62,10 @@ class Show extends Command
                 array_merge(
                     isset($teams) ? $teams->prepend(new TableCell(''))->toArray() : [],
                     $roles->keys()->map(function ($val) {
-                        $name = explode('_', $val);
-                        array_pop($name);
+                        $nama = explode('_', $val);
+                        array_pop($nama);
 
-                        return implode('_', $name);
+                        return implode('_', $nama);
                     })
                         ->prepend(new TableCell(''))->toArray(),
                 ),

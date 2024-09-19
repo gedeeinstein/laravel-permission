@@ -1,17 +1,17 @@
 <?php
 
-namespace Spatie\Permission\Contracts;
+namespace GedeAdi\Permission\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * @property int|string $id
- * @property string $name
+ * @property string $nama
  * @property string|null $guard_name
  *
- * @mixin \Spatie\Permission\Models\Role
+ * @mixin \GedeAdi\Permission\Models\Role
  *
- * @phpstan-require-extends \Spatie\Permission\Models\Role
+ * @phpstan-require-extends \GedeAdi\Permission\Models\Role
  */
 interface Role
 {
@@ -24,27 +24,27 @@ interface Role
      * Find a role by its name and guard name.
      *
      *
-     * @throws \Spatie\Permission\Exceptions\RoleDoesNotExist
+     * @throws \GedeAdi\Permission\Exceptions\RoleDoesNotExist
      */
-    public static function findByName(string $name, ?string $guardName): self;
+    public static function findByName(string $nama, ?string $guardName): self;
 
     /**
      * Find a role by its id and guard name.
      *
      *
-     * @throws \Spatie\Permission\Exceptions\RoleDoesNotExist
+     * @throws \GedeAdi\Permission\Exceptions\RoleDoesNotExist
      */
     public static function findById(int|string $id, ?string $guardName): self;
 
     /**
      * Find or create a role by its name and guard name.
      */
-    public static function findOrCreate(string $name, ?string $guardName): self;
+    public static function findOrCreate(string $nama, ?string $guardName): self;
 
     /**
      * Determine if the user may perform the given permission.
      *
-     * @param  string|int|\Spatie\Permission\Contracts\Permission|\BackedEnum  $permission
+     * @param  string|int|\GedeAdi\Permission\Contracts\Permission|\BackedEnum  $permission
      */
     public function hasPermissionTo($permission, ?string $guardName): bool;
 }

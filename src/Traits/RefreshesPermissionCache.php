@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Permission\Traits;
+namespace GedeAdi\Permission\Traits;
 
-use Spatie\Permission\PermissionRegistrar;
+use GedeAdi\Permission\PermissionRegistrar;
 
 trait RefreshesPermissionCache
 {

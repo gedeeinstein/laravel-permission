@@ -1,16 +1,16 @@
 <?php
 
-namespace Spatie\Permission\Commands;
+namespace GedeAdi\Permission\Commands;
 
 use Illuminate\Console\Command;
-use Spatie\Permission\Contracts\Permission as PermissionContract;
-use Spatie\Permission\Contracts\Role as RoleContract;
-use Spatie\Permission\PermissionRegistrar;
+use GedeAdi\Permission\Contracts\Permission as PermissionContract;
+use GedeAdi\Permission\Contracts\Role as RoleContract;
+use GedeAdi\Permission\PermissionRegistrar;
 
 class CreateRole extends Command
 {
     protected $signature = 'permission:create-role
-        {name : The name of the role}
+        {nama : The name of the role}
         {guard? : The name of the guard}
         {permissions? : A list of permissions to assign to the role, separated by | }
         {--team-id=}';
@@ -35,12 +35,12 @@ class CreateRole extends Command
 
         $teams_key = $permissionRegistrar->teamsKey;
         if ($permissionRegistrar->teams && $this->option('team-id') && is_null($role->$teams_key)) {
-            $this->warn("Role `{$role->name}` already exists on the global team; argument --team-id has no effect");
+            $this->warn("Role `{$role->nama}` already exists on the global team; argument --team-id has no effect");
         }
 
         $role->givePermissionTo($this->makePermissions($this->argument('permissions')));
 
-        $this->info("Role `{$role->name}` ".($role->wasRecentlyCreated ? 'created' : 'updated'));
+        $this->info("Role `{$role->nama}` ".($role->wasRecentlyCreated ? 'created' : 'updated'));
     }
 
     /**

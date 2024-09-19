@@ -1,5 +1,5 @@
 {
-    "name": "spatie/laravel-permission",
+    "name": "gedeeinstein/laravel-permission",
     "description": "Permission handling for Laravel 8.0 and up",
     "license": "MIT",
     "keywords": [
@@ -10,17 +10,18 @@
         "roles",
         "acl",
         "rbac",
+        "IDEP",
         "security"
     ],
     "authors": [
         {
-            "name": "Freek Van der Herten",
-            "email": "freek@spatie.be",
-            "homepage": "https://spatie.be",
+            "name": "Mod by I Gede Adi Surya Eka P P",
+            "email": "laravel@gedeadi.my.id",
+            "homepage": "https://gedeadi.my.id",
             "role": "Developer"
         }
     ],
-    "homepage": "https://github.com/spatie/laravel-permission",
+    "homepage": "https://github.com/gedeeinstein/laravel-permission",
     "require": {
         "php": "^8.0",
         "illuminate/auth": "^8.12|^9.0|^10.0|^11.0",
@@ -58,7 +59,7 @@
         },
         "laravel": {
             "providers": [
-                "Spatie\\Permission\\PermissionServiceProvider"
+                "GedeAdi\\Permission\\PermissionServiceProvider"
             ]
         }
     },

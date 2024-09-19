@@ -1,17 +1,17 @@
 <?php
 
-namespace Spatie\Permission\Models;
+namespace GedeAdi\Permission\Models;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Spatie\Permission\Contracts\Permission as PermissionContract;
-use Spatie\Permission\Exceptions\PermissionAlreadyExists;
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
-use Spatie\Permission\Guard;
-use Spatie\Permission\PermissionRegistrar;
-use Spatie\Permission\Traits\HasRoles;
-use Spatie\Permission\Traits\RefreshesPermissionCache;
+use GedeAdi\Permission\Contracts\Permission as PermissionContract;
+use GedeAdi\Permission\Exceptions\PermissionAlreadyExists;
+use GedeAdi\Permission\Exceptions\PermissionDoesNotExist;
+use GedeAdi\Permission\Guard;
+use GedeAdi\Permission\PermissionRegistrar;
+use GedeAdi\Permission\Traits\HasRoles;
+use GedeAdi\Permission\Traits\RefreshesPermissionCache;
 
 /**
  * @property ?\Illuminate\Support\Carbon $created_at
@@ -86,12 +86,12 @@ class Permission extends Model implements PermissionContract
      *
      * @throws PermissionDoesNotExist
      */
-    public static function findByName(string $name, ?string $guardName = null): PermissionContract
+    public static function findByName(string $nama, ?string $guardName = null): PermissionContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
-        $permission = static::getPermission(['nama' => $name, 'guard_name' => $guardName]);
+        $permission = static::getPermission(['nama' => $nama, 'guard_name' => $guardName]);
         if (! $permission) {
-            throw PermissionDoesNotExist::create($name, $guardName);
+            throw PermissionDoesNotExist::create($nama, $guardName);
         }
 
         return $permission;
@@ -121,13 +121,13 @@ class Permission extends Model implements PermissionContract
      *
      * @return PermissionContract|Permission
      */
-    public static function findOrCreate(string $name, ?string $guardName = null): PermissionContract
+    public static function findOrCreate(string $nama, ?string $guardName = null): PermissionContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
-        $permission = static::getPermission(['nama' => $name, 'guard_name' => $guardName]);
+        $permission = static::getPermission(['nama' => $nama, 'guard_name' => $guardName]);
 
         if (! $permission) {
-            return static::query()->create(['nama' => $name, 'guard_name' => $guardName]);
+            return static::query()->create(['nama' => $nama, 'guard_name' => $guardName]);
         }
 
         return $permission;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Permission\Exceptions;
+namespace GedeAdi\Permission\Exceptions;
 
 use Illuminate\Contracts\Auth\Access\Authorizable;
 use Symfony\Component\HttpKernel\Exception\HttpException;

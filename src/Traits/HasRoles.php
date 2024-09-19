@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\Permission\Traits;
+namespace GedeAdi\Permission\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\PermissionRegistrar;
+use GedeAdi\Permission\Contracts\Permission;
+use GedeAdi\Permission\Contracts\Role;
+use GedeAdi\Permission\PermissionRegistrar;
 
 trait HasRoles
 {
@@ -236,13 +236,13 @@ trait HasRoles
             return $this->roles
                 ->when($guard, fn ($q) => $q->where('guard_name', $guard))
                 ->pluck('nama')
-                ->contains(function ($name) use ($roles) {
-                    /** @var string|\BackedEnum $name */
-                    if ($name instanceof \BackedEnum) {
-                        return $name->value == $roles;
+                ->contains(function ($nama) use ($roles) {
+                    /** @var string|\BackedEnum $nama */
+                    if ($nama instanceof \BackedEnum) {
+                        return $nama->value == $roles;
                     }
 
-                    return $name == $roles;
+                    return $nama == $roles;
                 });
         }
 
@@ -323,7 +323,7 @@ trait HasRoles
                 return $role->value;
             }
 
-            return $role instanceof Role ? $role->name : $role;
+            return $role instanceof Role ? $role->nama : $role;
         });
 
         $roleNames = $guard
@@ -359,10 +359,10 @@ trait HasRoles
         }
 
         if ($roles instanceof Role) {
-            $roles = [$roles->name];
+            $roles = [$roles->nama];
         }
 
-        $roles = collect()->make($roles)->map(fn ($role) => $role instanceof Role ? $role->name : $role
+        $roles = collect()->make($roles)->map(fn ($role) => $role instanceof Role ? $role->nama : $role
         );
 
         return $this->roles->count() == $roles->count() && $this->hasAllRoles($roles, $guard);

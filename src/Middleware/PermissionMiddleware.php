@@ -1,11 +1,11 @@
 <?php
 
-namespace Spatie\Permission\Middleware;
+namespace GedeAdi\Permission\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Exceptions\UnauthorizedException;
-use Spatie\Permission\Guard;
+use GedeAdi\Permission\Exceptions\UnauthorizedException;
+use GedeAdi\Permission\Guard;
 
 class PermissionMiddleware
 {

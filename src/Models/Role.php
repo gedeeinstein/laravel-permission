@@ -1,18 +1,18 @@
 <?php
 
-namespace Spatie\Permission\Models;
+namespace GedeAdi\Permission\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Spatie\Permission\Contracts\Role as RoleContract;
-use Spatie\Permission\Exceptions\GuardDoesNotMatch;
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
-use Spatie\Permission\Exceptions\RoleAlreadyExists;
-use Spatie\Permission\Exceptions\RoleDoesNotExist;
-use Spatie\Permission\Guard;
-use Spatie\Permission\PermissionRegistrar;
-use Spatie\Permission\Traits\HasPermissions;
-use Spatie\Permission\Traits\RefreshesPermissionCache;
+use GedeAdi\Permission\Contracts\Role as RoleContract;
+use GedeAdi\Permission\Exceptions\GuardDoesNotMatch;
+use GedeAdi\Permission\Exceptions\PermissionDoesNotExist;
+use GedeAdi\Permission\Exceptions\RoleAlreadyExists;
+use GedeAdi\Permission\Exceptions\RoleDoesNotExist;
+use GedeAdi\Permission\Guard;
+use GedeAdi\Permission\PermissionRegistrar;
+use GedeAdi\Permission\Traits\HasPermissions;
+use GedeAdi\Permission\Traits\RefreshesPermissionCache;
 
 /**
  * @property ?\Illuminate\Support\Carbon $created_at
@@ -55,7 +55,7 @@ class Role extends Model implements RoleContract
             }
         }
         if (static::findByParam($params)) {
-            throw RoleAlreadyExists::create($attributes['name'], $attributes['guard_name']);
+            throw RoleAlreadyExists::create($attributes['nama'], $attributes['guard_name']);
         }
 
         return static::query()->create($attributes);
@@ -95,14 +95,14 @@ class Role extends Model implements RoleContract
      *
      * @throws RoleDoesNotExist
      */
-    public static function findByName(string $name, ?string $guardName = null): RoleContract
+    public static function findByName(string $nama, ?string $guardName = null): RoleContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
 
-        $role = static::findByParam(['nama' => $name, 'guard_name' => $guardName]);
+        $role = static::findByParam(['nama' => $nama, 'guard_name' => $guardName]);
 
         if (! $role) {
-            throw RoleDoesNotExist::named($name, $guardName);
+            throw RoleDoesNotExist::named($nama, $guardName);
         }
 
         return $role;
@@ -131,14 +131,14 @@ class Role extends Model implements RoleContract
      *
      * @return RoleContract|Role
      */
-    public static function findOrCreate(string $name, ?string $guardName = null): RoleContract
+    public static function findOrCreate(string $nama, ?string $guardName = null): RoleContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
 
-        $role = static::findByParam(['nama' => $name, 'guard_name' => $guardName]);
+        $role = static::findByParam(['nama' => $nama, 'guard_name' => $guardName]);
 
         if (! $role) {
-            return static::query()->create(['nama' => $name, 'guard_name' => $guardName] + (app(PermissionRegistrar::class)->teams ? [app(PermissionRegistrar::class)->teamsKey => getPermissionsTeamId()] : []));
+            return static::query()->create(['nama' => $nama, 'guard_name' => $guardName] + (app(PermissionRegistrar::class)->teams ? [app(PermissionRegistrar::class)->teamsKey => getPermissionsTeamId()] : []));
         }
 
         return $role;

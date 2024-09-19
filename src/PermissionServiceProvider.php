@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Permission;
+namespace GedeAdi\Permission;
 
 use Composer\InstalledVersions;
 use Illuminate\Contracts\Auth\Access\Gate;
@@ -13,8 +13,8 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
-use Spatie\Permission\Contracts\Permission as PermissionContract;
-use Spatie\Permission\Contracts\Role as RoleContract;
+use GedeAdi\Permission\Contracts\Permission as PermissionContract;
+use GedeAdi\Permission\Contracts\Role as RoleContract;
 
 class PermissionServiceProvider extends ServiceProvider
 {
@@ -192,11 +192,11 @@ class PermissionServiceProvider extends ServiceProvider
 
         AboutCommand::add('Spatie Permissions', static fn () => [
             'Features Enabled' => collect($features)
-                ->filter(fn (string $feature, string $name): bool => $config->get("permission.{$feature}"))
+                ->filter(fn (string $feature, string $nama): bool => $config->get("permission.{$feature}"))
                 ->keys()
                 ->whenEmpty(fn (Collection $collection) => $collection->push('Default'))
                 ->join(', '),
-            'Version' => InstalledVersions::getPrettyVersion('spatie/laravel-permission'),
+            'Version' => InstalledVersions::getPrettyVersion('gedeeinstein/laravel-permission'),
         ]);
     }
 }

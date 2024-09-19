@@ -1,17 +1,17 @@
 <?php
 
-namespace Spatie\Permission\Contracts;
+namespace GedeAdi\Permission\Contracts;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * @property int|string $id
- * @property string $name
+ * @property string $nama
  * @property string|null $guard_name
  *
- * @mixin \Spatie\Permission\Models\Permission
+ * @mixin \GedeAdi\Permission\Models\Permission
  *
- * @phpstan-require-extends \Spatie\Permission\Models\Permission
+ * @phpstan-require-extends \GedeAdi\Permission\Models\Permission
  */
 interface Permission
 {
@@ -24,20 +24,20 @@ interface Permission
      * Find a permission by its name.
      *
      *
-     * @throws \Spatie\Permission\Exceptions\PermissionDoesNotExist
+     * @throws \GedeAdi\Permission\Exceptions\PermissionDoesNotExist
      */
-    public static function findByName(string $name, ?string $guardName): self;
+    public static function findByName(string $nama, ?string $guardName): self;
 
     /**
      * Find a permission by its id.
      *
      *
-     * @throws \Spatie\Permission\Exceptions\PermissionDoesNotExist
+     * @throws \GedeAdi\Permission\Exceptions\PermissionDoesNotExist
      */
     public static function findById(int|string $id, ?string $guardName): self;
 
     /**
      * Find or Create a permission by its name and guard name.
      */
-    public static function findOrCreate(string $name, ?string $guardName): self;
+    public static function findOrCreate(string $nama, ?string $guardName): self;
 }
