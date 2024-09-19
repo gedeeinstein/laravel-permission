@@ -17,7 +17,7 @@ class CreatePermission extends Command
     {
         $permissionClass = app(PermissionContract::class);
 
-        $permission = $permissionClass::findOrCreate($this->argument('name'), $this->argument('guard'));
+        $permission = $permissionClass::findOrCreate($this->argument('nama'), $this->argument('guard'));
 
         $this->info("Permission `{$permission->nama}` ".($permission->wasRecentlyCreated ? 'created' : 'already exists'));
     }
