@@ -128,7 +128,7 @@ class PermissionServiceProvider extends ServiceProvider
 
     protected function registerBladeExtensions(BladeCompiler $bladeCompiler): void
     {
-        $bladeMethodWrapper = '\\Spatie\\Permission\\PermissionServiceProvider::bladeMethodWrapper';
+        $bladeMethodWrapper = '\\GedeAdi\\Permission\\PermissionServiceProvider::bladeMethodWrapper';
 
         // permission checks
         $bladeCompiler->if('haspermission', fn () => $bladeMethodWrapper('checkPermissionTo', ...func_get_args()));
@@ -190,13 +190,13 @@ class PermissionServiceProvider extends ServiceProvider
 
         $config = $this->app['config'];
 
-        AboutCommand::add('Spatie Permissions', static fn () => [
+        AboutCommand::add('GedeAdi Permissions', static fn () => [
             'Features Enabled' => collect($features)
                 ->filter(fn (string $feature, string $nama): bool => $config->get("permission.{$feature}"))
                 ->keys()
                 ->whenEmpty(fn (Collection $collection) => $collection->push('Default'))
                 ->join(', '),
-            'Version' => InstalledVersions::getPrettyVersion('gedeeinstein/laravel-permission'),
+            'Version' => InstalledVersions::getPrettyVersion('gedeadisurya/laravel-permission'),
         ]);
     }
 }
