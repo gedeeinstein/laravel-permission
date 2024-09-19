@@ -235,7 +235,7 @@ trait HasRoles
 
             return $this->roles
                 ->when($guard, fn ($q) => $q->where('guard_name', $guard))
-                ->pluck('name')
+                ->pluck('nama')
                 ->contains(function ($name) use ($roles) {
                     /** @var string|\BackedEnum $name */
                     if ($name instanceof \BackedEnum) {
@@ -256,8 +256,8 @@ trait HasRoles
 
         if (is_string($roles)) {
             return $guard
-                ? $this->roles->where('guard_name', $guard)->contains('name', $roles)
-                : $this->roles->contains('name', $roles);
+                ? $this->roles->where('guard_name', $guard)->contains('nama', $roles)
+                : $this->roles->contains('nama', $roles);
         }
 
         if ($roles instanceof Role) {
@@ -327,7 +327,7 @@ trait HasRoles
         });
 
         $roleNames = $guard
-            ? $this->roles->where('guard_name', $guard)->pluck('name')
+            ? $this->roles->where('guard_name', $guard)->pluck('nama')
             : $this->getRoleNames();
 
         $roleNames = $roleNames->transform(function ($roleName) {
@@ -380,7 +380,7 @@ trait HasRoles
     {
         $this->loadMissing('roles');
 
-        return $this->roles->pluck('name');
+        return $this->roles->pluck('nama');
     }
 
     protected function getStoredRole($role): Role
