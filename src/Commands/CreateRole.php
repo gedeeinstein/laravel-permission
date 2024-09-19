@@ -30,7 +30,7 @@ class CreateRole extends Command
             return;
         }
 
-        $role = $roleClass::findOrCreate($this->argument('name'), $this->argument('guard'));
+        $role = $roleClass::findOrCreate($this->argument('nama'), $this->argument('guard'));
         setPermissionsTeamId($teamIdAux);
 
         $teams_key = $permissionRegistrar->teamsKey;
