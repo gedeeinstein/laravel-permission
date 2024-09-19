@@ -43,10 +43,10 @@ class Permission extends Model implements PermissionContract
     {
         $attributes['guard_name'] = $attributes['guard_name'] ?? Guard::getDefaultName(static::class);
 
-        $permission = static::getPermission(['name' => $attributes['name'], 'guard_name' => $attributes['guard_name']]);
+        $permission = static::getPermission(['nama' => $attributes['nama'], 'guard_name' => $attributes['guard_name']]);
 
         if ($permission) {
-            throw PermissionAlreadyExists::create($attributes['name'], $attributes['guard_name']);
+            throw PermissionAlreadyExists::create($attributes['nama'], $attributes['guard_name']);
         }
 
         return static::query()->create($attributes);
@@ -89,7 +89,7 @@ class Permission extends Model implements PermissionContract
     public static function findByName(string $name, ?string $guardName = null): PermissionContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
-        $permission = static::getPermission(['name' => $name, 'guard_name' => $guardName]);
+        $permission = static::getPermission(['nama' => $name, 'guard_name' => $guardName]);
         if (! $permission) {
             throw PermissionDoesNotExist::create($name, $guardName);
         }
@@ -124,10 +124,10 @@ class Permission extends Model implements PermissionContract
     public static function findOrCreate(string $name, ?string $guardName = null): PermissionContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
-        $permission = static::getPermission(['name' => $name, 'guard_name' => $guardName]);
+        $permission = static::getPermission(['nama' => $name, 'guard_name' => $guardName]);
 
         if (! $permission) {
-            return static::query()->create(['name' => $name, 'guard_name' => $guardName]);
+            return static::query()->create(['nama' => $name, 'guard_name' => $guardName]);
         }
 
         return $permission;
