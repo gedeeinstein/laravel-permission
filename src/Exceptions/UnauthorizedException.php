@@ -57,7 +57,7 @@ class UnauthorizedException extends HttpException
     {
         $class = get_class($user);
 
-        return new static(403, "Authorizable class `{$class}` must use Spatie\Permission\Traits\HasRoles trait.", null, []);
+        return new static(403, "Authorizable class `{$class}` must use GedeAdi\Permission\Traits\HasRoles trait.", null, []);
     }
 
     public static function notLoggedIn(): self

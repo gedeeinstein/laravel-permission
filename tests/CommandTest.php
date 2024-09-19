@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\Permission\Tests;
+namespace GedeAdi\Permission\Tests;
 
 use Composer\InstalledVersions;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\Artisan;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
+use GedeAdi\Permission\Models\Permission;
+use GedeAdi\Permission\Models\Role;
 
 class CommandTest extends TestCase
 {
@@ -166,7 +166,7 @@ class CommandTest extends TestCase
     public function it_can_show_roles_by_teams()
     {
         config()->set('permission.teams', true);
-        app(\Spatie\Permission\PermissionRegistrar::class)->initializeCache();
+        app(\GedeAdi\Permission\PermissionRegistrar::class)->initializeCache();
 
         Role::where('name', 'testRole2')->delete();
         Role::create(['name' => 'testRole_2']);
@@ -197,12 +197,12 @@ class CommandTest extends TestCase
             $this->markTestSkipped();
         }
 
-        app(\Spatie\Permission\PermissionRegistrar::class)->initializeCache();
+        app(\GedeAdi\Permission\PermissionRegistrar::class)->initializeCache();
 
         Artisan::call('about');
         $output = Artisan::output();
 
-        $pattern = '/Spatie Permissions[ .\n]*Features Enabled[ .]*Default[ .\n]*Version/';
+        $pattern = '/GedeAdi Permissions[ .\n]*Features Enabled[ .]*Default[ .\n]*Version/';
         if (method_exists($this, 'assertMatchesRegularExpression')) {
             $this->assertMatchesRegularExpression($pattern, $output);
         } else { // phpUnit 9/8
@@ -220,14 +220,14 @@ class CommandTest extends TestCase
             $this->markTestSkipped();
         }
 
-        app(\Spatie\Permission\PermissionRegistrar::class)->initializeCache();
+        app(\GedeAdi\Permission\PermissionRegistrar::class)->initializeCache();
 
         config()->set('permission.teams', true);
 
         Artisan::call('about');
         $output = Artisan::output();
 
-        $pattern = '/Spatie Permissions[ .\n]*Features Enabled[ .]*Teams[ .\n]*Version/';
+        $pattern = '/GedeAdi Permissions[ .\n]*Features Enabled[ .]*Teams[ .\n]*Version/';
         if (method_exists($this, 'assertMatchesRegularExpression')) {
             $this->assertMatchesRegularExpression($pattern, $output);
         } else { // phpUnit 9/8

@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\Permission\Tests;
+namespace GedeAdi\Permission\Tests;
 
 use Illuminate\Support\Facades\DB;
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\Exceptions\GuardDoesNotMatch;
-use Spatie\Permission\Exceptions\RoleDoesNotExist;
-use Spatie\Permission\Tests\TestModels\Admin;
-use Spatie\Permission\Tests\TestModels\SoftDeletingUser;
-use Spatie\Permission\Tests\TestModels\User;
+use GedeAdi\Permission\Contracts\Role;
+use GedeAdi\Permission\Exceptions\GuardDoesNotMatch;
+use GedeAdi\Permission\Exceptions\RoleDoesNotExist;
+use GedeAdi\Permission\Tests\TestModels\Admin;
+use GedeAdi\Permission\Tests\TestModels\SoftDeletingUser;
+use GedeAdi\Permission\Tests\TestModels\User;
 
 class HasRolesTest extends TestCase
 {

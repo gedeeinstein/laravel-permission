@@ -1,15 +1,15 @@
 <?php
 
-namespace Spatie\Permission\Tests;
+namespace GedeAdi\Permission\Tests;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Exceptions\UnauthorizedException;
-use Spatie\Permission\Middleware\PermissionMiddleware;
-use Spatie\Permission\Middleware\RoleMiddleware;
-use Spatie\Permission\Middleware\RoleOrPermissionMiddleware;
-use Spatie\Permission\Models\Permission;
+use GedeAdi\Permission\Exceptions\UnauthorizedException;
+use GedeAdi\Permission\Middleware\PermissionMiddleware;
+use GedeAdi\Permission\Middleware\RoleMiddleware;
+use GedeAdi\Permission\Middleware\RoleOrPermissionMiddleware;
+use GedeAdi\Permission\Models\Permission;
 
 class WildcardMiddlewareTest extends TestCase
 {

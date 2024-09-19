@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\Permission\Tests;
+namespace GedeAdi\Permission\Tests;
 
-use Spatie\Permission\Contracts\Permission as PermissionContract;
-use Spatie\Permission\Contracts\Role as RoleContract;
-use Spatie\Permission\Models\Permission as SpatiePermission;
-use Spatie\Permission\Models\Role as SpatieRole;
-use Spatie\Permission\PermissionRegistrar;
-use Spatie\Permission\Tests\TestModels\Permission as TestPermission;
-use Spatie\Permission\Tests\TestModels\Role as TestRole;
+use GedeAdi\Permission\Contracts\Permission as PermissionContract;
+use GedeAdi\Permission\Contracts\Role as RoleContract;
+use GedeAdi\Permission\Models\Permission as GedeAdiPermission;
+use GedeAdi\Permission\Models\Role as GedeAdiRole;
+use GedeAdi\Permission\PermissionRegistrar;
+use GedeAdi\Permission\Tests\TestModels\Permission as TestPermission;
+use GedeAdi\Permission\Tests\TestModels\Role as TestRole;
 
 class PermissionRegistrarTest extends TestCase
 {
@@ -74,16 +74,16 @@ class PermissionRegistrarTest extends TestCase
     /** @test */
     public function it_can_get_permission_class()
     {
-        $this->assertSame(SpatiePermission::class, app(PermissionRegistrar::class)->getPermissionClass());
-        $this->assertSame(SpatiePermission::class, get_class(app(PermissionContract::class)));
+        $this->assertSame(GedeAdiPermission::class, app(PermissionRegistrar::class)->getPermissionClass());
+        $this->assertSame(GedeAdiPermission::class, get_class(app(PermissionContract::class)));
     }
 
     /** @test */
     public function it_can_change_permission_class()
     {
-        $this->assertSame(SpatiePermission::class, config('permission.models.permission'));
-        $this->assertSame(SpatiePermission::class, app(PermissionRegistrar::class)->getPermissionClass());
-        $this->assertSame(SpatiePermission::class, get_class(app(PermissionContract::class)));
+        $this->assertSame(GedeAdiPermission::class, config('permission.models.permission'));
+        $this->assertSame(GedeAdiPermission::class, app(PermissionRegistrar::class)->getPermissionClass());
+        $this->assertSame(GedeAdiPermission::class, get_class(app(PermissionContract::class)));
 
         app(PermissionRegistrar::class)->setPermissionClass(TestPermission::class);
 
@@ -95,16 +95,16 @@ class PermissionRegistrarTest extends TestCase
     /** @test */
     public function it_can_get_role_class()
     {
-        $this->assertSame(SpatieRole::class, app(PermissionRegistrar::class)->getRoleClass());
-        $this->assertSame(SpatieRole::class, get_class(app(RoleContract::class)));
+        $this->assertSame(GedeAdiRole::class, app(PermissionRegistrar::class)->getRoleClass());
+        $this->assertSame(GedeAdiRole::class, get_class(app(RoleContract::class)));
     }
 
     /** @test */
     public function it_can_change_role_class()
     {
-        $this->assertSame(SpatieRole::class, config('permission.models.role'));
-        $this->assertSame(SpatieRole::class, app(PermissionRegistrar::class)->getRoleClass());
-        $this->assertSame(SpatieRole::class, get_class(app(RoleContract::class)));
+        $this->assertSame(GedeAdiRole::class, config('permission.models.role'));
+        $this->assertSame(GedeAdiRole::class, app(PermissionRegistrar::class)->getRoleClass());
+        $this->assertSame(GedeAdiRole::class, get_class(app(RoleContract::class)));
 
         app(PermissionRegistrar::class)->setRoleClass(TestRole::class);
 

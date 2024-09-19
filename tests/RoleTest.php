@@ -1,17 +1,17 @@
 <?php
 
-namespace Spatie\Permission\Tests;
+namespace GedeAdi\Permission\Tests;
 
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\Exceptions\GuardDoesNotMatch;
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
-use Spatie\Permission\Exceptions\RoleAlreadyExists;
-use Spatie\Permission\Exceptions\RoleDoesNotExist;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\PermissionRegistrar;
-use Spatie\Permission\Tests\TestModels\Admin;
-use Spatie\Permission\Tests\TestModels\RuntimeRole;
-use Spatie\Permission\Tests\TestModels\User;
+use GedeAdi\Permission\Contracts\Role;
+use GedeAdi\Permission\Exceptions\GuardDoesNotMatch;
+use GedeAdi\Permission\Exceptions\PermissionDoesNotExist;
+use GedeAdi\Permission\Exceptions\RoleAlreadyExists;
+use GedeAdi\Permission\Exceptions\RoleDoesNotExist;
+use GedeAdi\Permission\Models\Permission;
+use GedeAdi\Permission\PermissionRegistrar;
+use GedeAdi\Permission\Tests\TestModels\Admin;
+use GedeAdi\Permission\Tests\TestModels\RuntimeRole;
+use GedeAdi\Permission\Tests\TestModels\User;
 
 class RoleTest extends TestCase
 {

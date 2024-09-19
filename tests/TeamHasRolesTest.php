@@ -1,9 +1,9 @@
 <?php
 
-namespace Spatie\Permission\Tests;
+namespace GedeAdi\Permission\Tests;
 
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\Tests\TestModels\User;
+use GedeAdi\Permission\Contracts\Role;
+use GedeAdi\Permission\Tests\TestModels\User;
 
 class TeamHasRolesTest extends HasRolesTest
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Permission\Tests;
+namespace GedeAdi\Permission\Tests;
 
-use Spatie\Permission\Tests\TestModels\User;
+use GedeAdi\Permission\Tests\TestModels\User;
 
 class TeamHasPermissionsTest extends HasPermissionsTest
 {

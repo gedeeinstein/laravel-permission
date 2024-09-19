@@ -1,14 +1,14 @@
 <?php
 
-namespace Spatie\Permission\Tests;
+namespace GedeAdi\Permission\Tests;
 
 use DB;
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\Exceptions\GuardDoesNotMatch;
-use Spatie\Permission\Exceptions\PermissionDoesNotExist;
-use Spatie\Permission\Tests\TestModels\SoftDeletingUser;
-use Spatie\Permission\Tests\TestModels\User;
+use GedeAdi\Permission\Contracts\Permission;
+use GedeAdi\Permission\Contracts\Role;
+use GedeAdi\Permission\Exceptions\GuardDoesNotMatch;
+use GedeAdi\Permission\Exceptions\PermissionDoesNotExist;
+use GedeAdi\Permission\Tests\TestModels\SoftDeletingUser;
+use GedeAdi\Permission\Tests\TestModels\User;
 
 class HasPermissionsTest extends TestCase
 {

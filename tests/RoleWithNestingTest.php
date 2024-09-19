@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Permission\Tests;
+namespace GedeAdi\Permission\Tests;
 
-use Spatie\Permission\Tests\TestModels\Role;
+use GedeAdi\Permission\Tests\TestModels\Role;
 
 class RoleWithNestingTest extends TestCase
 {

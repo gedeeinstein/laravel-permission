@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Permission\Tests;
+namespace GedeAdi\Permission\Tests;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Console\AboutCommand;
@@ -11,33 +11,33 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 use Laravel\Passport\PassportServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Contracts\Role;
-use Spatie\Permission\Exceptions\UnauthorizedException;
-use Spatie\Permission\PermissionRegistrar;
-use Spatie\Permission\PermissionServiceProvider;
-use Spatie\Permission\Tests\TestModels\Admin;
-use Spatie\Permission\Tests\TestModels\Client;
-use Spatie\Permission\Tests\TestModels\User;
+use GedeAdi\Permission\Contracts\Permission;
+use GedeAdi\Permission\Contracts\Role;
+use GedeAdi\Permission\Exceptions\UnauthorizedException;
+use GedeAdi\Permission\PermissionRegistrar;
+use GedeAdi\Permission\PermissionServiceProvider;
+use GedeAdi\Permission\Tests\TestModels\Admin;
+use GedeAdi\Permission\Tests\TestModels\Client;
+use GedeAdi\Permission\Tests\TestModels\User;
 
 abstract class TestCase extends Orchestra
 {
-    /** @var \Spatie\Permission\Tests\User */
+    /** @var \GedeAdi\Permission\Tests\User */
     protected $testUser;
 
-    /** @var \Spatie\Permission\Tests\Admin */
+    /** @var \GedeAdi\Permission\Tests\Admin */
     protected $testAdmin;
 
-    /** @var \Spatie\Permission\Models\Role */
+    /** @var \GedeAdi\Permission\Models\Role */
     protected $testUserRole;
 
-    /** @var \Spatie\Permission\Models\Role */
+    /** @var \GedeAdi\Permission\Models\Role */
     protected $testAdminRole;
 
-    /** @var \Spatie\Permission\Models\Permission */
+    /** @var \GedeAdi\Permission\Models\Permission */
     protected $testUserPermission;
 
-    /** @var \Spatie\Permission\Models\Permission */
+    /** @var \GedeAdi\Permission\Models\Permission */
     protected $testAdminPermission;
 
     /** @var bool */
@@ -55,9 +55,9 @@ abstract class TestCase extends Orchestra
 
     protected Client $testClient;
 
-    protected \Spatie\Permission\Models\Permission $testClientPermission;
+    protected \GedeAdi\Permission\Models\Permission $testClientPermission;
 
-    protected \Spatie\Permission\Models\Role $testClientRole;
+    protected \GedeAdi\Permission\Models\Role $testClientRole;
 
     protected function setUp(): void
     {
@@ -132,8 +132,8 @@ abstract class TestCase extends Orchestra
         $app['config']->set('auth.guards.admin', ['driver' => 'session', 'provider' => 'admins']);
         $app['config']->set('auth.providers.admins', ['driver' => 'eloquent', 'model' => Admin::class]);
         if ($this->useCustomModels) {
-            $app['config']->set('permission.models.permission', \Spatie\Permission\Tests\TestModels\Permission::class);
-            $app['config']->set('permission.models.role', \Spatie\Permission\Tests\TestModels\Role::class);
+            $app['config']->set('permission.models.permission', \GedeAdi\Permission\Tests\TestModels\Permission::class);
+            $app['config']->set('permission.models.role', \GedeAdi\Permission\Tests\TestModels\Role::class);
         }
         // Use test User model for users provider
         $app['config']->set('auth.providers.users.model', User::class);

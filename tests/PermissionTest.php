@@ -1,10 +1,10 @@
 <?php
 
-namespace Spatie\Permission\Tests;
+namespace GedeAdi\Permission\Tests;
 
-use Spatie\Permission\Contracts\Permission;
-use Spatie\Permission\Exceptions\PermissionAlreadyExists;
-use Spatie\Permission\Tests\TestModels\User;
+use GedeAdi\Permission\Contracts\Permission;
+use GedeAdi\Permission\Exceptions\PermissionAlreadyExists;
+use GedeAdi\Permission\Tests\TestModels\User;
 
 class PermissionTest extends TestCase
 {

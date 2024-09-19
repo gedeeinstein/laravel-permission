@@ -18,7 +18,7 @@ if (! function_exists('setPermissionsTeamId')) {
      */
     function setPermissionsTeamId($id)
     {
-        app(\Spatie\Permission\PermissionRegistrar::class)->setPermissionsTeamId($id);
+        app(\GedeAdi\Permission\PermissionRegistrar::class)->setPermissionsTeamId($id);
     }
 }
 
@@ -28,6 +28,6 @@ if (! function_exists('getPermissionsTeamId')) {
      */
     function getPermissionsTeamId()
     {
-        return app(\Spatie\Permission\PermissionRegistrar::class)->getPermissionsTeamId();
+        return app(\GedeAdi\Permission\PermissionRegistrar::class)->getPermissionsTeamId();
     }
 }

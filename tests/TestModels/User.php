@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Permission\Tests\TestModels;
+namespace GedeAdi\Permission\Tests\TestModels;
 
-use Spatie\Permission\Traits\HasRoles;
+use GedeAdi\Permission\Traits\HasRoles;
 
 class User extends UserWithoutHasRoles
 {

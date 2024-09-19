@@ -8,6 +8,6 @@ class WildcardPermissionNotImplementsContract extends InvalidArgumentException
 {
     public static function create()
     {
-        return new static('Wildcard permission class must implements Spatie\Permission\Contracts\Wildcard contract');
+        return new static('Wildcard permission class must implements GedeAdi\Permission\Contracts\Wildcard contract');
     }
 }

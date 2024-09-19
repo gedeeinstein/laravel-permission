@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Permission\Tests;
+namespace GedeAdi\Permission\Tests;
 
-use Spatie\Permission\Models\Permission;
+use GedeAdi\Permission\Models\Permission;
 
 class WildcardRoleTest extends TestCase
 {

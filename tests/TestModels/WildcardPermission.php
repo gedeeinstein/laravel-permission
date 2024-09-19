@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Permission\Tests\TestModels;
+namespace GedeAdi\Permission\Tests\TestModels;
 
-use Spatie\Permission\WildcardPermission as BaseWildcardPermission;
+use GedeAdi\Permission\WildcardPermission as BaseWildcardPermission;
 
 class WildcardPermission extends BaseWildcardPermission
 {

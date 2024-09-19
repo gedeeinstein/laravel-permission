@@ -76,7 +76,7 @@ If you discover any security-related issues, please email [security@spatie.be](m
 
 You're free to use this package, but if it makes it to your production environment we highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using.
 
-Our address is: Spatie, Kruikstraat 22, 2018 Antwerp, Belgium.
+Our address is: GedeAdi, Kruikstraat 22, 2018 Antwerp, Belgium.
 
 We publish all received postcards [on our company website](https://spatie.be/en/opensource/postcards).
 
