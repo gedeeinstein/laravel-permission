@@ -235,7 +235,7 @@ trait HasPermissions
 
         if ($permission instanceof Permission) {
             $guardName = $permission->guard_name ?? $guardName;
-            $permission = $permission->name;
+            $permission = $permission->nama;
         }
 
         if (! is_string($permission)) {
@@ -474,7 +474,7 @@ trait HasPermissions
 
     public function getPermissionNames(): Collection
     {
-        return $this->permissions->pluck('name');
+        return $this->permissions->pluck('nama');
     }
 
     /**
@@ -501,10 +501,10 @@ trait HasPermissions
                     return $permission->value;
                 }
 
-                return is_a($permission, Permission::class) ? $permission->name : $permission;
+                return is_a($permission, Permission::class) ? $permission->nama : $permission;
             }, $permissions);
 
-            return $this->getPermissionClass()::whereIn('name', $permissions)
+            return $this->getPermissionClass()::whereIn('nama', $permissions)
                 ->whereIn('guard_name', $this->getGuardNames())
                 ->get();
         }
