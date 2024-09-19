@@ -1,3 +1,18 @@
+
+
+php artisan vendor:publish --provider="GedeAdi\Permission\PermissionServiceProvider"
+
+
+
+
+Optional: The service provider will automatically get registered. Or you may manually add the service provider in your config/app.php file:
+
+'providers' => [
+    // ...
+    GedeAdi\Permission\PermissionServiceProvider::class,
+];
+
+
 <p align="center"><img src="/art/socialcard.png" alt="Social Card of Laravel Permission"></p>
 
 # Associate users with permissions and roles
